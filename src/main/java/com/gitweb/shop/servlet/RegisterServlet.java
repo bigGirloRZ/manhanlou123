@@ -10,7 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 
 /**
  * 用户注册
@@ -26,11 +29,12 @@ public class RegisterServlet extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
         resp.setCharacterEncoding("UTF-8");
         String userName = req.getParameter("userName");
-        String tel=req.getParameter("telephone");
+        Integer tel=Integer.valueOf(req.getParameter("telephone"));
         String password = req.getParameter("password");
         String gender = req.getParameter("gender");
         //getParameterValues用于多选框，用于同一个name有多个值的情况
-        String money = req.getParameter("money");
+        Integer money = Integer.valueOf(req.getParameter("money"));
+
         //完成了接受请求参数
         //不允许用户名重复
         User oldUser = userDao.verifyUserName(userName);
@@ -44,10 +48,15 @@ public class RegisterServlet extends HttpServlet {
         //user对象的作用，数据库跟java之间的桥梁
         User user = new User();
         user.setGender(Boolean.parseBoolean(gender));
-
-
         user.setPassword(password);
         user.setUserName(userName);
+        user.setMoney(money);
+        user.setMoney(tel);
+        Date date=new Date();
+        DateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String time=format.format(date);
+        user.setDate(time);
+
         userDao.saveUser(user);
         //1.传递请求  req  可以传输数据
         //2.重定向   resp   不可以传数据

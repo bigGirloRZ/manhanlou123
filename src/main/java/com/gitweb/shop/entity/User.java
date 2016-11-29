@@ -13,6 +13,30 @@ public class User {
     private  String hobbies;
     private  Boolean gender;
     private Integer cost;
+    private String date;
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", tel='" + tel + '\'' +
+                ", money=" + money +
+                ", hobbies='" + hobbies + '\'' +
+                ", gender=" + gender +
+                ", cost=" + cost +
+                ", date='" + date + '\'' +
+                '}';
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 
     public Integer getCost() {
         return cost;

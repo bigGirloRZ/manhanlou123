@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="MANAGED"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/shop"/>
+                <property name="username" value="root"/>
+                <property name="password" value="12345"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!--相当于dao结构的Dao的实现类-->
+    <mappers>
+        <!--待关联的sql配置文件-->
+       <!-- 路径是相对路径，默认路径是resource文件夹-->
+        <mapper resource="test.xml"/>
+    </mappers>
+</configuration>

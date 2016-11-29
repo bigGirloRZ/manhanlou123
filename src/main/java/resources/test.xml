@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+     <!--   namespace  关联一个待实现的接口
+        值是这个接口的地址 package 方式定位的-->
+        <!--位置也是相对的  默认地址是java-->
+<mapper namespace="dao.IUserDao">
+    <!--id跟方法名一致-->
+    <!--mybatis 自带类型:map,string,integer-->
+  <!--  resultType  项目里的class 或 mybatis自带的类型库
+    resultMap   自定义的类型-->
+   <!-- 指定返回类型  resultType,resultMap 二选一-->
+    <select id="getAllUser" resultType="map">
+        SELECT * FROM user
+    </select>
+   <!-- 查询对应select标签-->
+    <select id="getUserById" resultType="map">
+        SELECT * FROM user WHERE id=#{id}
+    </select>
+     <!--多个参数使用别名-->
+    <select id="getUserByNameAndPass" resultType="map">
+        SELECT *FROM   user WHERE user_name=#{name} and password=#{pass}
+    </select>
+
+      <!--若参数是对象类型，那么取值是调用对应的get方法-->
+    <select id="getUserByUser" resultType="map">
+        SELECT *FROM   user WHERE user_name=#{name} and password=#{pass}
+    </select>
+</mapper>

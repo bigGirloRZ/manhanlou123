@@ -15,14 +15,15 @@
             <li class="active">查看用户</li>
         </ol>
     </div>
+    <form action="/queryUserCost">
     <div>
         <table class="table table-hover">
             <tr>
                 <th>编号</th>
                 <th>用户名</th>
-                <th>菜名</th>
+                <th>性别</th>
                 <th>金额</th>
-                <th>日期</th>
+                <th>办理日期</th>
             </tr>
             <%--一个user代表一个tr--%>
             <c:forEach items="${requestScope.users}" var="user">
@@ -36,4 +37,5 @@
             </c:forEach>
         </table>
     </div>
+    </form>
 </div>

@@ -23,11 +23,11 @@
     <div class="row">
         <div class="col-xs-3">
             <ul class="nav nav-pills nav-stacked" role="tablist">
-                <li <c:if test="${sessionScope.servletName eq 'queryUser'}">class="active"</c:if>>
-                    <a href="/queryUser">查看用户</a>
+                <li <c:if test="${sessionScope.servletName eq 'queryCost'}">class="active"</c:if>>
+                    <a href="/queryCost">查看消费记录</a>
                 </li>
-                <li <c:if test="${sessionScope.servletName eq 'addGoods'}">class="active"</c:if>>
-                    <a href="/addGoods">添加商品</a>
+                <li <c:if test="${sessionScope.servletName eq 'addCost'}">class="active"</c:if>>
+                    <a href="/addCost">添加消费记录</a>
                 </li>
                 <li ><a href="#">查看商品</a></li>
             </ul>
@@ -35,9 +35,6 @@
      <c:if test="${sessionScope.servletName eq 'queryUser'}">
          <jsp:include page="/pluginJsp/queryUser.jsp"></jsp:include>
      </c:if>
-        <%--<c:if test="${sessionScope.servletName eq 'addGoods'}">--%>
-            <%--<jsp:include page="/pluginJsp/addGoods.jsp"></jsp:include>--%>
-        <%--</c:if>--%>
     </div>
 </div>
 </body>

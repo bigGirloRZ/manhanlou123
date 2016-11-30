@@ -1,5 +1,9 @@
 package com.gitweb.shop.entity;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * user表记录 存储数据对象
  */
@@ -10,10 +14,9 @@ public class User {
     private String password;
     private String tel;
     private Integer money;
-    private  String hobbies;
     private  Boolean gender;
-    private Integer cost;
     private String date;
+    private Integer costPass;
 
     @Override
     public String toString() {
@@ -23,11 +26,18 @@ public class User {
                 ", password='" + password + '\'' +
                 ", tel='" + tel + '\'' +
                 ", money=" + money +
-                ", hobbies='" + hobbies + '\'' +
                 ", gender=" + gender +
-                ", cost=" + cost +
                 ", date='" + date + '\'' +
+                ", costPass=" + costPass +
                 '}';
+    }
+
+    public Integer getCostPass() {
+        return costPass;
+    }
+
+    public void setCostPass(Integer costPass) {
+        this.costPass = costPass;
     }
 
     public String getDate() {
@@ -38,21 +48,6 @@ public class User {
         this.date = date;
     }
 
-    public Integer getCost() {
-        return cost;
-    }
-
-    public void setCost(Integer cost) {
-        this.cost = cost;
-    }
-
-    public String getHobbies() {
-        return hobbies;
-    }
-
-    public void setHobbies(String hobbies) {
-        this.hobbies = hobbies;
-    }
     public Integer getId() {
         return id;
     }
@@ -99,6 +94,12 @@ public class User {
 
     public void setMoney(Integer money) {
         this.money = money;
+    }
+    public String getTime(){
+        Date date=new Date();
+        DateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String time=format.format(date);
+        return time;
     }
 
 }

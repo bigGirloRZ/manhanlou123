@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace 制定实现接口地址-->
+<mapper namespace="com.gitweb.shop.dao.ICostDao">
+    <!--type指定的是javaBean的地址-->
+    <resultMap id="CostMap" type="com.gitweb.shop.entity.Cost">
+        <!-- property 指定的是javaBean的属性
+         column 指定是数据的字段名-->
+        <!--除了主键用id标签，其他都用result-->
+        <id  property="id" column="id"/>
+        <result  property="userName" column="user_name"/>
+        <result  property="foodName" column="food_name"/>
+        <result  property="cost" column="cost"/>
+        <result  property="date" column="date"/>
+    </resultMap>
+    <insert id="saveCost">
+        INSERT INTO cost(food_name,user_name,date,cost)VALUES
+        (#{foodName},#{date},#{cost},#{userName})
+    </insert>
+
+    <select id="getAllCost" resultMap="CostMap">
+        SELECT * FROM cost
+    </select>
+
+    <select id="selectByCostName" resultMap="CostMap" >
+        SELECT *FROM cost WHERE user_name=#{userName}
+    </select>
+</mapper>

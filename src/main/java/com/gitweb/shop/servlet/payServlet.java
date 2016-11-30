@@ -13,7 +13,7 @@ import java.io.IOException;
  * Created by zhaorunsheng on 2016/11/28.
  */
 public class payServlet extends HttpServlet {
-       IUserDao userDao= MybatisMapperUtil.getMapper(IUserDao.class);
+    MybatisMapperUtil util= new MybatisMapperUtil();
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");

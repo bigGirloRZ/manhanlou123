@@ -18,6 +18,7 @@
     <mappers>
         <!--待关联的sql配置文件-->
        <!-- 路径是相对路径，默认路径是resource文件夹-->
-        <mapper resource="test.xml"/>
+        <mapper resource="mapper/cost.xml"/>
+        <mapper resource="mapper/user.xml"/>
     </mappers>
 </configuration>

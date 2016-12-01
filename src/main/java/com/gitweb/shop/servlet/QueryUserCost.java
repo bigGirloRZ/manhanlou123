@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.awt.geom.Arc2D;
 import java.io.IOException;
 import java.util.List;
 
@@ -30,7 +31,7 @@ public class QueryUserCost extends HttpServlet{
         req.setAttribute("allCosts",allCosts);
         //获取session
         HttpSession session = req.getSession();
-        session.setAttribute("servletName","queryGoods");
+        session.setAttribute("servletName","queryCost");
         //重定向 不能保留请求数据，传递请求可以
         req.getRequestDispatcher("/content.jsp").forward(req,resp);
     }
@@ -41,12 +42,31 @@ public class QueryUserCost extends HttpServlet{
         //设置字符编码
         req.setCharacterEncoding("UTF-8");
         resp.setCharacterEncoding("UTF-8");
-        ICostDao costDao=util.getMapper(ICostDao.class);
+
         String userName=req.getParameter("userName");
-        List<Cost>allCosts=costDao.selectByCostName(userName);
+        String foodName=req.getParameter("foodName");
+        String cost=req.getParameter("cost");
+        Double costValue=null;
+        if (cost!=null&&cost.isEmpty()){
+            costValue=Double.parseDouble(cost);
+             }
+        Cost usercost=new Cost();
+        if (userName!=null&&!userName.isEmpty()){
+            usercost.setUserName(userName);
+        }
+        if (foodName!=null&&!foodName.isEmpty()){
+            usercost.setFoodName(foodName);
+        }
+        if (costValue!=null){
+            usercost.setCost(costValue);
+        }
+        String date=usercost.getTime();
+        usercost.setDate(date);
+        ICostDao costDao=util.getMapper(ICostDao.class);
+        List<Cost>allCosts=costDao.selctByCost(usercost);
         req.setAttribute("allCosts",allCosts);
         HttpSession session = req.getSession();
-        session.setAttribute("servletName","queryGoods");
+        session.setAttribute("servletName","queryCost");
         //重定向 不能保留请求数据，传递请求可以
         req.getRequestDispatcher("/content.jsp").forward(req,resp);
     }

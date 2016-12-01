@@ -27,9 +27,10 @@
     <table class="table">
         <tr>
             <th>编号</th>
-            <th>商品名</th>
-            <th>类型</th>
+            <th>用户名</th>
+            <th>食品</th>
             <th>价格</th>
+            <th>日期</th>
         </tr>
        <%-- items 代表集合，var代表集合里的每一项--%>
         <c:forEach items="${requestScope.allCosts}" var="cost">

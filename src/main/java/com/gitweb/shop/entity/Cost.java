@@ -9,7 +9,7 @@ import java.util.Date;
  */
 public class Cost {
     private String userName;
-    private Integer cost;
+    private Double cost;
     private String date;
     private String foodName;
 
@@ -29,12 +29,16 @@ public class Cost {
         this.userName = userName;
     }
 
-    public Integer getCost() {
+    public Double getCost() {
         return cost;
     }
 
-    public void setCost(Integer cost) {
+    public void setCost(Double cost) {
         this.cost = cost;
+    }
+
+    public String getFoodName() {
+        return foodName;
     }
 
     public String getDate() {

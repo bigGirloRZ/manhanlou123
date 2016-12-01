@@ -18,19 +18,6 @@ public class User {
     private String date;
     private Integer costPass;
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", userName='" + userName + '\'' +
-                ", password='" + password + '\'' +
-                ", tel='" + tel + '\'' +
-                ", money=" + money +
-                ", gender=" + gender +
-                ", date='" + date + '\'' +
-                ", costPass=" + costPass +
-                '}';
-    }
 
     public Integer getCostPass() {
         return costPass;

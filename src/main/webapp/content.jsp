@@ -35,6 +35,12 @@
      <c:if test="${sessionScope.servletName eq 'queryUser'}">
          <jsp:include page="/pluginJsp/queryUser.jsp"></jsp:include>
      </c:if>
+        <c:if test="${sessionScope.servletName eq 'queryCost'}">
+            <jsp:include page="/pluginJsp/queryCost.jsp"></jsp:include>
+        </c:if>
+        <c:if test="${sessionScope.servletName eq 'addCost'}">
+            <jsp:include page="/pluginJsp/addCost.jsp"></jsp:include>
+        </c:if>
     </div>
 </div>
 </body>

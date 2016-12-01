@@ -34,7 +34,7 @@ public class AddCostServlet extends HttpServlet {
         String userName=req.getParameter("userName");
         String foodName=req.getParameter("foodName");
         String cost=req.getParameter("Cost");
-        int costValue=Integer.parseInt(cost);
+        double costValue=Double.parseDouble(cost);
         Cost usercost=new Cost();
         usercost.setCost(costValue);
         usercost.setFoodName(foodName);
@@ -43,5 +43,6 @@ public class AddCostServlet extends HttpServlet {
         usercost.setDate(date);
         ICostDao costDao=util.getMapper(ICostDao.class);
         costDao.saveCost(usercost);
+        resp.sendRedirect("/queryCost");
     }
 }

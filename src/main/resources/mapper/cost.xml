@@ -17,7 +17,7 @@
     </resultMap>
     <insert id="saveCost">
         INSERT INTO cost(food_name,user_name,date,cost)VALUES
-        (#{foodName},#{date},#{cost},#{userName})
+        (#{foodName},#{userName},#{date},#{cost})
     </insert>
 
     <select id="getAllCost" resultMap="CostMap">
@@ -26,5 +26,19 @@
 
     <select id="selectByCostName" resultMap="CostMap" >
         SELECT *FROM cost WHERE user_name=#{userName}
+    </select>
+    <select id="selctByCost" resultMap="CostMap">
+        SELECT *FROM cost
+        <where>
+            <if test="foodName!=null">
+                food_name=#{foodName}
+            </if>
+            <if test="userName!=null">
+              AND user_name=#{foodName}
+            </if>
+            <if test="foodName!=null">
+                food_name=#{foodName}
+            </if>
+        </where>
     </select>
 </mapper>

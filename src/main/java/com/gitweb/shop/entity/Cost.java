@@ -7,11 +7,21 @@ import java.util.Date;
 /**
  * Created by ZRS on 2016/11/29.
  */
+
 public class Cost {
+    private Integer id;
     private String userName;
     private Double cost;
     private String date;
     private String foodName;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getFoodame() {
         return foodName;

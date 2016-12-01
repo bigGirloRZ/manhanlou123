@@ -43,6 +43,5 @@ public class AddCostServlet extends HttpServlet {
         usercost.setDate(date);
         ICostDao costDao=util.getMapper(ICostDao.class);
         costDao.saveCost(usercost);
-        resp.sendRedirect("/queryCost");
     }
 }

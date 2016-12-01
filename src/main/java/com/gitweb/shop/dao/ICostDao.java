@@ -20,4 +20,5 @@ public interface ICostDao {
     List<Cost> selectByCostName(String userName);
     //查询所需要的消费，以对象作为输入对象
     List<Cost> selctByCost(Cost cost);
+
    }

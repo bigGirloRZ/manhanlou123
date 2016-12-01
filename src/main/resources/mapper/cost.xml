@@ -36,8 +36,8 @@
             <if test="userName!=null">
               AND user_name=#{foodName}
             </if>
-            <if test="foodName!=null">
-                food_name=#{foodName}
+            <if test="cost!=null">
+                AND cost=#{cost}
             </if>
         </where>
     </select>

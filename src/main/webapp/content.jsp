@@ -32,9 +32,9 @@
                 <li ><a href="#">查看商品</a></li>
             </ul>
         </div>
-     <c:if test="${sessionScope.servletName eq 'queryUser'}">
-         <jsp:include page="/pluginJsp/queryUser.jsp"></jsp:include>
-     </c:if>
+     <%--<c:if test="${sessionScope.servletName eq 'queryUser'}">--%>
+         <%--<jsp:include page="/pluginJsp/queryUser.jsp"></jsp:include>--%>
+     <%--</c:if>--%>
         <c:if test="${sessionScope.servletName eq 'queryCost'}">
             <jsp:include page="/pluginJsp/queryCost.jsp"></jsp:include>
         </c:if>

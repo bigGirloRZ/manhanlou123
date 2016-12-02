@@ -44,4 +44,7 @@
     <delete id="destroyCostbyId">
         DELETE FROM cost WHERE id=#{id}
     </delete>
+    <select id="selectByCostId" resultMap="CostMap">
+        SELECT *FROM cost WHERE id=#{id}
+    </select>
 </mapper>

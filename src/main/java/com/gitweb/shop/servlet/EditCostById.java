@@ -1,6 +1,7 @@
 package com.gitweb.shop.servlet;
 
 import com.gitweb.shop.dao.ICostDao;
+import com.gitweb.shop.entity.Cost;
 import com.gitweb.shop.utli.MybatisMapperUtil;
 
 import javax.servlet.ServletException;
@@ -23,8 +24,9 @@ public class EditCostById extends HttpServlet {
         String idd=req.getParameter("id");
         int id=Integer.parseInt(idd);
         ICostDao costDao = util.getMapper(ICostDao.class);
-        costDao.selectByCostId(id);
-        resp.sendRedirect("/queryCost");
+        Cost cost =costDao.selectByCostId(id);
+        req.setAttribute("cost",cost);
+        req.getRequestDispatcher("/content.jsp").forward(req,resp);
     }
 
     @Override

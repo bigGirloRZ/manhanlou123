@@ -5,17 +5,17 @@
         <div class="form-group">
             <label class="sr-only">用户名：</label>
             <input type="text" class="form-control" name="userName"
-                   placeholder="用户名">
+                   placeholder="${requestScope.cost.userName}">
         </div>
         <div class="form-group">
             <label class="sr-only">菜名：</label>
             <input type="text" class="form-control" name="foodName"
-                   placeholder="菜名">
+                   placeholder="${requestScope.cost.foodName}">
         </div>
         <div class="form-group">
             <label class="sr-only">价格：</label>
             <input type="text" class="form-control" name="cost"
-                   placeholder="价格">
+                   placeholder="${requestScope.cost.price}">
         </div>
         <button type="submit" class="btn btn-default">搜索</button>
     </form>

@@ -41,4 +41,7 @@
             </if>
         </where>
     </select>
+    <delete id="destroyCostbyId">
+        DELETE FROM cost WHERE id=#{id}
+    </delete>
 </mapper>

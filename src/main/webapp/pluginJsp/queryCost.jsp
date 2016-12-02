@@ -36,6 +36,8 @@
         <td>${cost.foodName}</td>
         <td>${cost.cost}</td>
             <td>${cost.date}</td>
+            <td><a href="/destroyCostbyId?id=${cost.id}"> <i class="delete_log"></i></a></td>
+            <td><a href="/editCostById?id=${cost.id}"> <i class="edit_log"></i></a></td>
         </tr>
         </c:forEach>
     </table>

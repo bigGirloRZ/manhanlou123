@@ -58,10 +58,12 @@ public class QueryCost extends HttpServlet {
         }
         userCost.setCost(costValue);
         ICostDao costDao=util.getMapper(ICostDao.class);
-        List<Cost> allGoods = costDao.getAllCost();
+        List<Cost> allGoods = costDao.selctByCost(userCost);
         req.setAttribute("allGoods",allGoods);
-        HttpSession session=req.getSession();
+        //获取session
+        HttpSession session = req.getSession();
         session.setAttribute("servletName","queryCost");
+        //重定向 不能保留请求数据，传递请求可以
         req.getRequestDispatcher("/content.jsp").forward(req,resp);
     }
 }

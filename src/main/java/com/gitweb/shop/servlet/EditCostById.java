@@ -28,10 +28,21 @@ public class EditCostById extends HttpServlet {
         req.setAttribute("cost",cost);
         req.getRequestDispatcher("/content.jsp").forward(req,resp);
     }
-
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
         resp.setContentType("text/html;charset=utf-8");
+        String userName=req.getParameter("userName");
+        String foodName=req.getParameter("foodName");
+        String price=req.getParameter("price");
+        Cost usercost = new Cost();
+        usercost.setUserName(userName);
+        usercost.setFoodName(foodName);
+        Double priceValue=Double.parseDouble(price);
+        usercost.setCost(priceValue);
+        usercost.setDate(usercost.getTime());
+        ICostDao costDao = util.getMapper(ICostDao.class);
+        costDao.updateByCost(usercost);
+        resp.sendRedirect("/queryCost");
     }
 }

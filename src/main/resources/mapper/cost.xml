@@ -30,21 +30,25 @@
     <select id="selctByCost" resultMap="CostMap">
         SELECT *FROM cost
         <where>
-            <if test="foodName!=null">
-                food_name=#{foodName}
-            </if>
             <if test="userName!=null">
-              AND user_name=#{foodName}
+                user_name=#{userName}
+            </if>
+            <if test="foodName!=null">
+               and food_name=#{foodName}
             </if>
             <if test="cost!=null">
-                AND cost=#{cost}
+                and cost=#{cost}
             </if>
         </where>
     </select>
-    <delete id="destroyCostbyId">
+    <delete id="destoryGoodsById">
         DELETE FROM cost WHERE id=#{id}
     </delete>
     <select id="selectByCostId" resultMap="CostMap">
         SELECT *FROM cost WHERE id=#{id}
     </select>
+    <update id="updateByCost">
+        UPDATE cost SET user_name=#{userName},food_name=#{foodName},
+        cost=#{cost},date=#{date} WHERE id=#{id}
+    </update>
 </mapper>

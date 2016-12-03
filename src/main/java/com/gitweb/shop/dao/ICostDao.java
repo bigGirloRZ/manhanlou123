@@ -24,5 +24,6 @@ public interface ICostDao {
     void destoryGoodsById(int id);
     //根据id查询商品
     Cost selectByCostId(int id);
-
+    //更改查询对象的属性值
+    void updateByCost(Cost cost);
    }
